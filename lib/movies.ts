@@ -197,16 +197,18 @@ export const movies: Movie[] = [
   {
     id: 16,
     title: {
+      en: "Soul Surfer",
       pt: "A Força de Viver",
     },
     description: {
+      en: "Bethany Hamilton returns to surfing after a shark attack, proving that faith and courage can overcome any obstacle.",
       pt: "Bethany Hamilton regressa ao surf depois de um ataque de tubarão, mostrando ao mundo que a fé e a coragem superam qualquer obstáculo.",
     },
     link: "https://www.youtube.com/watch?v=isjY34VD5jE",
   },
 ];
 
-export function getRandomQuote(): Movie {
+export function getRandomMovie(): Movie {
   /*const randomIndex = Math.floor(Math.random() * movies.length);
   return movies[randomIndex];*/
 
