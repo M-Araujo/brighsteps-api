@@ -1,18 +1,18 @@
 
-type Movies = {
-    id: number;
-    title: {
-        en?: string;
-        pt?: string;
-    },
-    description: {
-        en?: string;
-        pt?: string;
-    },
-    link: string;
-}
+type Movie = {
+  id: number;
+  title: {
+    en?: string;
+    pt?: string;
+  };
+  description: {
+    en?: string;
+    pt?: string;
+  };
+  link: string;
+};
 
-export const movies: Movies[] = [
+export const movies: Movie[] = [
   {
     id: 1,
     title: {
@@ -205,8 +205,7 @@ export const movies: Movies[] = [
   },
 ];
 
-
-export function getRandomQuote(): InspirationalQuote {
-  const randomIndex = Math.floor(Math.random() * quotes.length);
-  return quotes[randomIndex];
+export function getRandomQuote(): Movie {
+  const randomIndex = Math.floor(Math.random() * movies.length);
+  return movies[randomIndex];
 }
