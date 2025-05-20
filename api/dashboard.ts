@@ -1,4 +1,4 @@
-import { getRandomQuote } from "./lib/quotes";
+import { getRandomQuote } from "./../lib/quotes";
 
 export default function handler(req, res) {
   res.setHeader("Access-Control-Allow-Origin", "*");
