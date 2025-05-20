@@ -209,8 +209,5 @@ export const movies: Movie[] = [
 ];
 
 export function getRandomMovie(): Movie {
-  /*const randomIndex = Math.floor(Math.random() * movies.length);
-  return movies[randomIndex];*/
-
   return getRandomItem(movies);
 }
