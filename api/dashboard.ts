@@ -1,4 +1,4 @@
-import { getRandomQuote } from "./../lib/quotes";
+import { getRandomQuote } from "../lib/movies";
 
 export default function handler(req, res) {
   res.setHeader("Access-Control-Allow-Origin", "*");
@@ -9,5 +9,5 @@ export default function handler(req, res) {
     return res.status(200).end();
   }
 
-  res.status(200).json({ inspiration: getRandomQuote() });
+  res.status(200).json({ movies: getRandomQuote() });
 }

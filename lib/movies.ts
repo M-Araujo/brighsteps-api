@@ -1,5 +1,5 @@
 
-type InspirationalQuote = {
+type Movies = {
     id: number;
     title: {
         en?: string;
@@ -12,7 +12,7 @@ type InspirationalQuote = {
     link: string;
 }
 
-export const quotes: InspirationalQuote[] = [
+export const movies: Movies[] = [
   {
     id: 1,
     title: {
