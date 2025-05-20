@@ -9,23 +9,21 @@ export default function handler(req, res) {
 
   // Your real data logic
   res.status(200).json([
-    [
-      {
-        id: 1,
-        title: {
-          en: "Read a book",
-          pt: "Ler um livro",
-        },
-        completed: false,
+    {
+      id: 1,
+      title: {
+        en: "Read a book",
+        pt: "Ler um livro",
       },
-      {
-        id: 2,
-        title: {
-          en: "Exercise daily",
-          pt: "Exercitar-se diariamente",
-        },
-        completed: true,
+      completed: false,
+    },
+    {
+      id: 2,
+      title: {
+        en: "Exercise daily",
+        pt: "Exercitar-se diariamente",
       },
-    ],
+      completed: true,
+    },
   ]);
 }
