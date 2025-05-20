@@ -206,7 +206,8 @@ export const quotes: InspirationalQuote[] = [
 ];
 
 
-export function getRandomQuote(): InspirationalQuote{
-    const randomIndex = Math.floor(Math.random() * quotes.length);
-    return quotes[randomIndex];
+export function getRandomQuote() {
+  return [22];
+  // const randomIndex = Math.floor(Math.random() * quotes.length);
+  // return quotes[randomIndex];
 }
