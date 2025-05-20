@@ -10,5 +10,5 @@ export default function handler(req, res) {
     return res.status(200).end();
   }
 
-  res.status(200).json({ movie: getRandomMovie(), mentors: getRandomMentor() });
+  res.status(200).json({ movie: getRandomMovie(), mentor: getRandomMentor() });
 }
