@@ -1,3 +1,4 @@
+import { getRandomItem } from "./utils";
 
 type Movie = {
   id: number;
@@ -206,6 +207,8 @@ export const movies: Movie[] = [
 ];
 
 export function getRandomQuote(): Movie {
-  const randomIndex = Math.floor(Math.random() * movies.length);
-  return movies[randomIndex];
+  /*const randomIndex = Math.floor(Math.random() * movies.length);
+  return movies[randomIndex];*/
+
+  return getRandomItem(movies);
 }
