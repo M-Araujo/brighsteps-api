@@ -9,5 +9,5 @@ export default function handler(req, res) {
     return res.status(200).end();
   }
 
-  res.status(200).json({ movies: getRandomQuote() });
+  res.status(200).json({ movie: getRandomQuote() });
 }
