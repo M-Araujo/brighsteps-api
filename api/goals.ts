@@ -16,6 +16,8 @@ export default function handler(req, res) {
         pt: "Ler um livro",
       },
       completed: false,
+      startDate: "2025-05-01",
+      endDate: "2025-05-31",
     },
     {
       id: 2,
@@ -24,6 +26,8 @@ export default function handler(req, res) {
         pt: "Exercitar-se diariamente",
       },
       completed: true,
+      startDate: "2025-04-15",
+      endDate: "2025-05-15",
     },
   ]);
 }
