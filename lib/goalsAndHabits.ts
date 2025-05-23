@@ -85,3 +85,7 @@ export const goals = [
     ],
   },
 ];
+
+export function dailyGoalsAndHabits() {
+  return goals;
+}
