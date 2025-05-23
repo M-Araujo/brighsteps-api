@@ -48,7 +48,7 @@ export const goals = [
           pt: "Fazer anotações de leitura",
         },
         goalId: 1,
-        frequency: [3, 4],
+        frequency: [3, 5],
         completions: ["2025-05-22"],
       },
     ],
