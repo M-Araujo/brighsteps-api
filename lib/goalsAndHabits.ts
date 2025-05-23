@@ -87,5 +87,15 @@ export const goals = [
 ];
 
 export function dailyGoalsAndHabits() {
-  return goals;
+
+  let currentDay = Date().getDay();
+  let weekday = currentDay === 0 ? 7 : currentDay;
+
+  let filteredGoals = goals.map((goal) => {
+    goal.habits.filter((habit) => {
+      return habit.frequency.includes(weekday);
+    });
+  });
+
+  return filteredGoals;
 }
