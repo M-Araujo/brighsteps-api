@@ -86,16 +86,24 @@ export const goals = [
   },
 ];
 
-export function dailyGoalsAndHabits() {
-
-  let currentDay = Date().getDay();
+export function dailyGoalsAndHabits(): Goal[] {
+  let currentDay = new Date().getDay();
   let weekday = currentDay === 0 ? 7 : currentDay;
 
-  let filteredGoals = goals.map((goal) => {
-    goal.habits.filter((habit) => {
-      return habit.frequency.includes(weekday);
-    });
-  });
+  let filteredGoals = goals
+    .map((goal) => {
+      const filteredHabits = goal.habits.filter((habit) => {
+        return habit.frequency.includes(weekday);
+      });
+      if (filteredHabits.length === 0) {
+        return null;
+      }
+      return {
+        ...goal,
+        habits: filteredHabits,
+      };
+    })
+    .filter((goal): goal is Goal => goal !== null);
 
   return filteredGoals;
 }
