@@ -1,7 +1,7 @@
 import { getRandomMovie } from "../lib/movies";
 import { getRandomMentor } from "../lib/mentors";
 import { getRandomTip } from "../lib/tips";
-import { dailyGoalsAndHabits } from "../lib/goalsAndHabits";
+import { goals } from "../lib/goalsAndHabits";
 
 export default function handler(req, res) {
   res.setHeader("Access-Control-Allow-Origin", "*");
@@ -16,6 +16,6 @@ export default function handler(req, res) {
     movie: getRandomMovie(),
     mentor: getRandomMentor(),
     tip: getRandomTip(),
-    goals: dailyGoalsAndHabits(),
+    goals: goals,
   });
 }
