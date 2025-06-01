@@ -30,6 +30,7 @@ export const goals = [
     },
     startDate: "2025-05-01",
     endDate: "2025-05-31",
+    completed: false,
     habits: [
       {
         id: 1,
@@ -61,6 +62,7 @@ export const goals = [
     },
     startDate: "2025-04-15",
     endDate: "2025-05-15",
+    completed: false,
     habits: [
       {
         id: 3,
