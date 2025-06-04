@@ -10,5 +10,5 @@ export default function handler(req, res) {
     }
 
     // Your real data logic
-    res.status(200).json({ quotes });
+    res.status(200).json(quotes);
 }
