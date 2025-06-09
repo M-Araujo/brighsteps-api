@@ -20,6 +20,15 @@ type Goal = {
     habits: Habit[]
 };
 
+let date = new Date();
+let year = date.getFullYear();
+let month = String(date.getMonth() + 1).padStart(2, "0");
+let defaultFirstDay = "1";
+let defaultLastDay = new Date(year, month + 1, 0).getDate();
+
+const getDateToString = (m, y, d) => {
+  return `${y}-${m}-${d}`;
+};
 
 export const goals = [
   {
@@ -28,8 +37,8 @@ export const goals = [
       en: "Read a book",
       pt: "Ler um livro",
     },
-    startDate: "2025-05-01",
-    endDate: "2025-05-31",
+    startDate: getDateToString(year, month, defaultFirstDay),
+    endDate: getDateToString(year, month, defaultLastDay),
     completed: false,
     habits: [
       {
@@ -60,8 +69,8 @@ export const goals = [
       en: "Exercise daily",
       pt: "Exercitar-se diariamente",
     },
-    startDate: "2025-04-15",
-    endDate: "2025-05-15",
+    startDate: getDateToString(year, month, defaultFirstDay),
+    endDate: getDateToString(year, month, defaultLastDay),
     completed: false,
     habits: [
       {
