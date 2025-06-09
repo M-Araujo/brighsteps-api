@@ -26,7 +26,7 @@ let month = String(date.getMonth() + 1).padStart(2, "0");
 let defaultFirstDay = "1";
 let defaultLastDay = new Date(year, month + 1, 0).getDate();
 
-const getDateToString = (m, y, d) => {
+const getDateToString = (y, m, d) => {
   return `${y}-${m}-${d}`;
 };
 
