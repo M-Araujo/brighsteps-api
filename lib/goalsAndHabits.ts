@@ -34,12 +34,12 @@ const getDateToString = (m: number, y: number, d: number): string => {
 const getFrequencyDates = (frequency: number[], count: number): string[] => {
   const validFrequency = frequency.filter((day) => day >= 1 && day <= 7);
   const dates: string[] = [];
-  const today = new Date(year, Number(month) - 1, date.getDate());
+  const today = new Date(year, Number(month), date.getDate()); // June (6)
   for (let day = date.getDate(); day >= 1 && dates.length < count; day--) {
-    const checkDate = new Date(year, Number(month) - 1, day);
+    const checkDate = new Date(year, Number(month), day); // June
     const weekday = checkDate.getDay() || 7;
     if (validFrequency.includes(weekday)) {
-      dates.push(getDateToString(Number(month) - 1, year, day));
+      dates.push(getDateToString(Number(month) - 1, year, day)); // Format as June
     }
   }
   return dates;
