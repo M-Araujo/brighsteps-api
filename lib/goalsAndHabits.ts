@@ -21,25 +21,23 @@ type Goal = {
   habits: Habit[];
 };
 
-let date = new Date();
-let year = date.getFullYear();
-let month = String(date.getMonth() + 1).padStart(2, "0");
-let defaultFirstDay = 1;
-let defaultLastDay = new Date(year, Number(month), 0).getDate();
-
 const getDateToString = (m: number, y: number, d: number): string => {
   return `${y}-${String(m + 1).padStart(2, "0")}-${String(d).padStart(2, "0")}`;
 };
 
 const getFrequencyDates = (frequency: number[], count: number): string[] => {
   const validFrequency = frequency.filter((day) => day >= 1 && day <= 7);
+  if (validFrequency.length === 0) return [];
   const dates: string[] = [];
-  const today = new Date(year, Number(month), date.getDate()); // June (6)
-  for (let day = date.getDate(); day >= 1 && dates.length < count; day--) {
-    const checkDate = new Date(year, Number(month), day); // June
+  const now = new Date();
+  const year = now.getFullYear();
+  const month = now.getMonth(); // 0-based (5 for June)
+  const today = new Date(year, month, now.getDate());
+  for (let day = now.getDate(); day >= 1 && dates.length < count; day--) {
+    const checkDate = new Date(year, month, day);
     const weekday = checkDate.getDay() || 7;
     if (validFrequency.includes(weekday)) {
-      dates.push(getDateToString(Number(month) - 1, year, day)); // Format as June
+      dates.push(getDateToString(month, year, day));
     }
   }
   return dates;
@@ -52,8 +50,16 @@ export const goals: Goal[] = [
       en: "Read a book",
       pt: "Ler um livro",
     },
-    startDate: getDateToString(Number(month) - 1, year, defaultFirstDay),
-    endDate: getDateToString(Number(month) - 1, year, defaultLastDay),
+    startDate: getDateToString(
+      new Date().getMonth(),
+      new Date().getFullYear(),
+      1
+    ),
+    endDate: getDateToString(
+      new Date().getMonth(),
+      new Date().getFullYear(),
+      new Date(new Date().getFullYear(), new Date().getMonth() + 1, 0).getDate()
+    ),
     completed: false,
     habits: [
       {
@@ -84,8 +90,16 @@ export const goals: Goal[] = [
       en: "Exercise daily",
       pt: "Exercitar-se diariamente",
     },
-    startDate: getDateToString(Number(month) - 1, year, defaultFirstDay),
-    endDate: getDateToString(Number(month) - 1, year, defaultLastDay),
+    startDate: getDateToString(
+      new Date().getMonth(),
+      new Date().getFullYear(),
+      1
+    ),
+    endDate: getDateToString(
+      new Date().getMonth(),
+      new Date().getFullYear(),
+      new Date(new Date().getFullYear(), new Date().getMonth() + 1, 0).getDate()
+    ),
     completed: false,
     habits: [
       {
@@ -113,8 +127,11 @@ export const goals: Goal[] = [
 ];
 
 export function dailyGoalsAndHabits(): Goal[] {
-  const today = getDateToString(Number(month) - 1, year, date.getDate());
-  const currentDay = date.getDay();
+  const now = new Date();
+  const year = now.getFullYear();
+  const month = String(now.getMonth() + 1).padStart(2, "0");
+  const today = getDateToString(now.getMonth(), year, now.getDate());
+  const currentDay = now.getDay();
   const weekday = currentDay === 0 ? 7 : currentDay;
 
   const filteredGoals = goals
