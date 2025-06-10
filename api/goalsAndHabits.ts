@@ -10,5 +10,7 @@ export default function handler(req, res) {
   }
 
   // Your real data logic
-  res.status(200).json({ dailyGoalsAndHabits });
+  res.status(200).json({
+    goals: dailyGoalsAndHabits(), // Call the function
+  });
 }

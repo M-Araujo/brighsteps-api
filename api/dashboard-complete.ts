@@ -16,6 +16,6 @@ export default function handler(req, res) {
     movie: getRandomMovie(),
     mentor: getRandomMentor(),
     tip: getRandomTip(),
-    goals: dailyGoalsAndHabits,
+    goals: dailyGoalsAndHabits(),
   });
 }
