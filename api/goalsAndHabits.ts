@@ -1,4 +1,4 @@
-import { goals } from "../lib/goalsAndHabits";
+import { dailyGoalsAndHabits } from "../lib/goalsAndHabits";
 
 export default function handler(req, res) {
   res.setHeader("Access-Control-Allow-Origin", "*"); // ✅ Allow all origins
@@ -10,5 +10,5 @@ export default function handler(req, res) {
   }
 
   // Your real data logic
-  res.status(200).json({goals});
+  res.status(200).json({ dailyGoalsAndHabits });
 }
