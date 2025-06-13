@@ -33,10 +33,14 @@ const getFrequencyDates = (frequency: number[], count: number): string[] => {
   const year = now.getFullYear();
   const month = now.getMonth(); // 0-based (5 for June)
   const today = new Date(year, month, now.getDate());
+  const todayTimestamp = new Date(year, month, now.getDate()).getTime();
   for (let day = now.getDate(); day >= 1 && dates.length < count; day--) {
     const checkDate = new Date(year, month, day);
     const weekday = checkDate.getDay() || 7;
-    if (validFrequency.includes(weekday)) {
+    if (
+      validFrequency.includes(weekday) &&
+      checkDate.getTime() !== todayTimestamp
+    ) {
       dates.push(getDateToString(month, year, day));
     }
   }
