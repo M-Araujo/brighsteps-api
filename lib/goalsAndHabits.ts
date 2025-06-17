@@ -139,17 +139,17 @@ export function dailyGoalsAndHabits(): Goal[] {
   const weekday = currentDay === 0 ? 7 : currentDay;
 
   const filteredGoals = goals
-    .filter((goal) => goal.startDate <= today && goal.endDate >= today)
+    /* .filter((goal) => goal.startDate <= today && goal.endDate >= today)
     .filter((goal) => {
       const filteredHabits = goal.habits.filter((habit) =>
         habit.frequency.includes(weekday)
       );
       return filteredHabits.length > 0;
-    })
+    })*/
     .map((goal) => ({
       ...goal,
       habits: goal.habits
-        .filter((habit) => habit.frequency.includes(weekday))
+        //.filter((habit) => habit.frequency.includes(weekday))
         .map((habit) => ({
           ...habit,
           completions: getFrequencyDates(habit.frequency, 2),
